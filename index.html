@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Mishab - Web/App Developer & Designer">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme-color" content="#0134d4">
+  <meta name="theme-color" content="#061238">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <!-- Title-->
@@ -64,11 +64,164 @@
     color: #0e76a8;
     margin-right: 1rem;
   }
+
+  @-webkit-keyframes come-in {
+    0% {
+      -webkit-transform: translatey(100px);
+      transform: translatey(100px);
+      opacity: 0;
+    }
+
+    30% {
+      -webkit-transform: translateX(-50px) scale(0.4);
+      transform: translateX(-50px) scale(0.4);
+    }
+
+    70% {
+      -webkit-transform: translateX(0px) scale(1.2);
+      transform: translateX(0px) scale(1.2);
+    }
+
+    100% {
+      -webkit-transform: translatey(0px) scale(1);
+      transform: translatey(0px) scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes come-in {
+    0% {
+      -webkit-transform: translatey(100px);
+      transform: translatey(100px);
+      opacity: 0;
+    }
+
+    30% {
+      -webkit-transform: translateX(-50px) scale(0.4);
+      transform: translateX(-50px) scale(0.4);
+    }
+
+    70% {
+      -webkit-transform: translateX(0px) scale(1.2);
+      transform: translateX(0px) scale(1.2);
+    }
+
+    100% {
+      -webkit-transform: translatey(0px) scale(1);
+      transform: translatey(0px) scale(1);
+      opacity: 1;
+    }
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    background: #eaedf2;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .floating-container {
+    z-index: 999;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    right: 0;
+    margin: 20px 5px;
+  }
+
+  .floating-container:hover {
+    height: 300px;
+  }
+
+  .floating-container:hover .floating-button {
+    /* box-shadow: 0 1px 25px rgba(44, 179, 240, 0.6); */
+    background-color: #0e76a8;
+    -webkit-transform: translatey(5px);
+    transform: translatey(5px);
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .floating-container:hover .element-container .float-element:nth-child(1) {
+    -webkit-animation: come-in 0.4s forwards 0.2s;
+    animation: come-in 0.4s forwards 0.2s;
+  }
+
+  .floating-container:hover .element-container .float-element:nth-child(2) {
+    -webkit-animation: come-in 0.4s forwards 0.4s;
+    animation: come-in 0.4s forwards 0.4s;
+  }
+
+  .floating-container:hover .element-container .float-element:nth-child(3) {
+    -webkit-animation: come-in 0.4s forwards 0.6s;
+    animation: come-in 0.4s forwards 0.6s;
+  }
+
+  .floating-container .floating-button {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    background: #000000;
+    bottom: 0;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: white;
+    line-height: 65px;
+    text-align: center;
+    font-size: 23px;
+    z-index: 100;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .floating-container .float-element {
+    position: relative;
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 15px auto;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    line-height: 50px;
+    z-index: 0;
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+
+  .floating-container .float-element .material-icons {
+    vertical-align: middle;
+    font-size: 16px;
+  }
+
+  .floating-container .float-element:nth-child(1) {
+    background: #42A5F5;
+
+  }
+
+  .floating-container .float-element:nth-child(2) {
+    background: #4CAF50;
+
+  }
+
+  .floating-container .float-element:nth-child(3) {
+    background: #FF9800;
+  }
 </style>
 
 <body>
   <!-- Preloader-->
-  <div class="preloader d-flex align-items-center justify-content-center" id="preloader">
+  <!-- <div class="preloader d-flex align-items-center justify-content-center" id="preloader">
     <div class="container1">
       <div class="div2" id="value">100</div>
       <div class="part3">
@@ -83,6 +236,22 @@
     <div class="loader">
       <div class="loading">
       </div>
+    </div>
+  </div> -->
+
+  <div class="floating-container">
+    <div class="floating-button"><i class="bi bi-stars"></i></div>
+    <div class="element-container">
+
+      <a href="google.com"> <span class="float-element bg-dark tooltip-left">
+          <i class="bi bi-download"></i>
+        </span></a>
+      <a href="google.com"> <span class="float-element bg-dark tooltip-left">
+          <i class="bi bi-share-fill"></i>
+        </span></a>
+      <a href="google.com"> <span class="float-element bg-dark tooltip-left">
+          <i class="bi bi-brightness-high"></i>
+        </span></a>
     </div>
   </div>
   <!-- Internet Connection Status-->
@@ -132,15 +301,16 @@
         <div class="setting-heading d-flex align-items-center justify-content-between mb-3">
           <p class="mb-0">Settings</p><a class="btn-close" id="settingCardClose" href="#"></a>
         </div>
-        <!-- <div class="single-setting-panel">
-                    <div class="form-check form-switch mb-2">
-                        <input class="form-check-input" type="checkbox" id="availabilityStatus" checked>
-                        <label class="form-check-label" for="availabilityStatus">Availability status</label>
-                    </div>
-                </div>-->
         <div class="single-setting-panel">
           <div class="form-check form-switch mb-2">
-            <a href="ui.html" class="form-check-label" for="sendMeNotifications">My Designs</a>
+            <input class="form-check-input" type="checkbox" id="availabilityStatus" checked>
+            <label class="form-check-label" for="availabilityStatus">Availability status</label>
+          </div>
+        </div>
+        <div class="single-setting-panel">
+          <div class="form-check form-switch mb-2">
+            <input class="form-check-input" type="checkbox" id="sendMeNotifications" checked>
+            <label class="form-check-label" for="sendMeNotifications">Send me notifications</label>
           </div>
         </div>
         <div class="single-setting-panel">
@@ -149,12 +319,12 @@
             <label class="form-check-label" for="darkSwitch">Dark mode</label>
           </div>
         </div>
-        <!-- <div class="single-setting-panel">
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="rtlSwitch">
-                        <label class="form-check-label" for="rtlSwitch">RTL mode</label>
-                    </div>
-                </div> -->
+        <div class="single-setting-panel">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="rtlSwitch">
+            <label class="form-check-label" for="rtlSwitch">RTL mode</label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -180,9 +350,9 @@
             </h4>
           </a></div>
         <!-- User Profile-->
-        <div class="shadow user-profile-wrapper"><a class="shadow user-profile-trigger-btn" href="assets/pdf/MishabResume2022.pdf"><svg
-              xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cloud-download"
-              viewBox="0 0 16 16">
+        <div class="shadow user-profile-wrapper"><a class="shadow user-profile-trigger-btn"
+            href="assets/pdf/MishabResume2022.pdf"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              fill="currentColor" class="bi bi-cloud-download" viewBox="0 0 16 16">
               <path
                 d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
               <path
@@ -193,22 +363,152 @@
     </div>
   </div>
   <!-- Hero Block Wrapper-->
-  <div class="hero-block-wrapper bg-dark">
-    <!-- Styles--><br><br>
-    <div class="hero-block-styles mt-3"><br>
+  <div class="hero-block-wrapper bg-white">
+    <!-- Styles-->
+    <div class="hero-block-styles mt-3">
       <div class="hb-styles1" style="background-image: url('assets/img/core-img/dot.png')"></div>
       <div class="hb-styles2"></div>
       <div class="hb-styles3"></div>
     </div>
+    <style>
+      html,
+      body {
+        background-color: #ffffff;
+      }
+
+      .img2 {
+        width: 20%;
+        z-index: 1;
+
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .banner2 {
+        margin-top: -560px;
+      }
+
+      .thello {
+        font-family: 'DM Sans', sans-serif;
+        margin-bottom: -5px;
+        margin-left: -55px;
+      }
+
+      .card2 {
+        margin-top: 0px;
+        z-index: 99;
+      }
+
+      .border-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .border2 {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        border: 2px solid black;
+        position: absolute;
+        opacity: 0;
+        animation: flicker 1s infinite;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .img2 {
+          width: 50%;
+          z-index: 1;
+        }
+
+        @keyframes flicker {
+          0% {
+            opacity: 0;
+          }
+
+          50% {
+            opacity: 1;
+          }
+
+          100% {
+            opacity: 0;
+          }
+        }
+
+        .card2 {
+          margin-top: -70px;
+          z-index: 99;
+        }
+
+        .border2 {
+          width: 170px;
+          height: 170px;
+          border-radius: 50%;
+          border: 2px solid rgb(4, 135, 206);
+          position: absolute;
+          opacity: 0;
+          animation: flicker 1s infinite;
+        }
+
+        /* .border3 {
+          width: 190px;
+          height: 190px;
+          border-radius: 50%;
+          border: 2px solid black;
+          position: absolute;
+          opacity: 0;
+          animation: flicker 1s infinite;
+        } */
+
+        .thello {
+          font-family: 'DM Sans', sans-serif;
+          margin-bottom: -5px;
+          margin-left: -45px;
+        }
+
+        .banner2 {
+          margin-top: -630px;
+        }
+      }
+    </style>
     <div class="container">
       <!-- Skip Page-->
+      <div class="banner2">
+        <!-- Hero Block Content-->
+        <center>
+          <div class="hero-block-content">
+            <div class="border-container">
+              <div class="border2"></div>
+              <div class="border3"></div>
+              <div class="border4"></div>
+            </div>
+            <img class="img2" src="assets/img/me/me.png">
+          </div>
+        </center>
+        <h1 class="thello text-dark text-center">Hello👋🏻
+        </h1>
 
-      <!-- Hero Block Content--><br><br>
-      <div class="hero-block-content mt-12"><img class="mb-4" src="assets/img/bg-img/me1.png">
-        <h2 class="display-4 text-white mb-1">I'm Mishab</h2>
-        <p class="pl-12">
-          <font color="white">
-            I'm a<br> </font>
+        <h1 class="text-dark text-center mb-3" style="font-family: 'DM Sans', sans-serif;">I'm Mishab</h1>
+        <p class=" text-dark text-center">
+
+          And i'm a<br>
           <font color="red">
             <strong>
               <span2></span>
@@ -216,112 +516,124 @@
           </font>
 
         </p>
-        <p class="text-white mb-4">I have archived many skills including digital content designing,
-          web/app designing and development and many more... </p><a class="btn btn-danger btn-creative btn-lg w-100"
-          href="#start">Explore More</a>
+        <p class="text-dark text-center p-3">A web designer and developer with experience in MERN stack and Python,
+          proficient in Web/App development, IoT, and AWS. Skilled in team leadership, with demonstrated experience in
+          leading teams at freelancing levels, coupled with strong communication abilities. </p>
+        <!-- <a class="btn btn-danger btn-creative btn-lg w-100"
+          href="#start">Explore More</a> -->
       </div>
     </div>
-  </div><br>
+  </div>
+  </div>
   <!-- <div class="page-content-wrapper py-3"> -->
   <div class="container">
-    <div class="card image-gallery-card direction-rtl mb-12" id="start">
-      <div class="card-body"><img class="mb-3 rounded" src="assets/img/bg-img/me2.jpg">
+    <div class="card card2 shadow-lg image-gallery-card direction-rtl mb-12" id="start">
+      <div class="card-body"><img class="mb-3 rounded" src="assets/img/me/img.png">
         <strong>
-          <h5>About Me</h5>
+          <h5 class=" mt-2"><b>About Me</b></h5>
+          <hr class="mb-4 w-50">
         </strong>
-        <h6>Hey, i'm Mishab a JavaScript/Php developer. Now i'm 21 year old boy. I have successfully completed SSLC, +2 & Degree(BCA in College of Applied Science Thamarassery (IHRD)).
+        <h6>
+          👋 Hi there! I'm Mishab, a passionate full-stack web developer with a Bachelor's degree in Computer
+          Applications (BCA) from Calicut University and a Master's degree in Computer Applications (MCA) from KTU
+          University. <br><br>
 
-          Currently, I'm working in <a href="https://www.vectorcrop.com" target="_____blanck">VectorCrop</a> as a freelance web-developer.
+          My expertise includes the MERN stack, IoT, AWS, Docker, and Flutter. I'm currently freelancing at VectorCrop,
+          a venture I founded, where I collaborate with clients to bring their visions to life.<br><br>
 
+          Outside of coding, I enjoy exploring the outdoors, reading, and tinkering with gadgets.
+
+          When it comes to technology, I'm always eager to stay ahead of the curve. Whether it's learning new languages
+          or diving into emerging trends, I thrive on embracing new challenges and pushing the boundaries of what's
+          possible in the digital realm. My relentless drive for excellence fuels my commitment to delivering top-notch
+          solutions that empower businesses to thrive in today's dynamic digital landscape.
         </h6>
-        <h6>I'm a Full-Stack JavaScript/Php Developer and Designer. I have worked in lead qualification with
-          My Partners, and
-          I can do the same thing for your company. I'm Passionate in UI development, Photography, videography, animations,
-          product
-          modeling works
-          and creating intuitive, dynamic user experiences.</h6>
         <h6 class="mt-3">
           <i class="fa fa-angle-right"></i> <span> Born : </span>12-march-2001<br>
           <i class="fa fa-angle-right"></i> <span> City : </span> Kozhikode, Kerala<br>
           <i class="fa fa-angle-right"></i> <span> Phone : </span> +91 99471 54691<br>
           <i class="fa fa-angle-right"></i> <span> Email : </span> imishabmsb@gmail.com<br>
           <i class="fa fa-angle-right"></i> <span> Degree : </span> BCA (2022)<br>
-          <i class="fa fa-angle-right"></i> <span> Website : </span> <a href="https://www.vectorcrop.com" target="_____blanck">www.vectorcrop.com</a> </h6>
-          <a class="btn btn-primary mt-3 mb-5" href="assets/pdf/MishabResume2022.pdf">Download
-            My
-            Resume</a><br>
-              <div class="row g-3">
-                <div class="col-3">
+          <i class="fa fa-angle-right"></i> <span> Website : </span> <a href="https://www.vectorcrop.com"
+            target="_____blanck">www.vectorcrop.com</a>
+        </h6>
+        <a class="btn btn-primary mt-3 mb-5" href="assets/pdf/MishabResume2022.pdf">Download
+          My
+          Resume</a><br>
+        <div class="row g-3">
+          <div class="col-3">
 
-                  <a href="https://github.com/imishab" target="_____blanck"><div class="feature-card text-center">
-                   <div class="card shadow mx-auto"><img src="assets/img/social/github.png" alt=""></div>
-                    <p class="mb-0">Github</p>
-                  </div></a>
+            <a href="https://github.com/imishab" target="_____blanck">
+              <div class="feature-card text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/github.png" alt=""></div>
+                <p class="mb-0">Github</p>
+              </div>
+            </a>
 
-                </div>
-                <div class="col-3">
-                  <a href="https://dribbble.com/i-mishab" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/dribbble.png" alt=""></div>
-                    <p class="mb-0">Dribbble</p>
-                  </div>
-</a>
-                </div>
-                <div class="col-3">
-                  <a href="https://www.facebook.com/i.mishab/" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/facebook.png" alt=""></div>
-                    <p class="mb-0">Facebook </p>
-                  </div>
-</a>
-                </div>
-                <div class="col-3">
-                  <a href="https://www.instagram.com/i.mishab/" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/instagram.png" alt=""></div>
-                    <p class="mb-0">Instagram</p>
-                  </div>
-</a>
-                </div>
-                <div class="col-3">
-                  <a href="https://www.linkedin.com/in/mishab-msb-4aa6b6201/" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/linkedin.png" alt=""></div>
-                    <p class="mb-0">Linkedin</p>
-                  </div>
-</a>
-                </div>
-                <div class="col-3">
-                  <a href="https://www.youtube.com/channel/UCsBAJimRq5wQDG3hjg7vHyw" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/youtube.png" alt=""></div>
-                    <p class="mb-0">Youtube</p>
-                  </div>
-</a>
-                </div>
-                <div class="col-3">
-                  <a href="https://api.whatsapp.com/send/?phone=9947154691&text&app_absent=0" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/whatsapp.png" alt=""></div>
-                    <p class="mb-0">Whatsapp</p>
-                  </div>
-</a>
-                </div>
-                <div class="col-3">
-                  <a href="https://www.behance.net/i-mishab" target="_____blanck">
-                  <div class="feature-card mx-auto text-center">
-                    <div class="card shadow mx-auto"><img src="assets/img/social/behance.png" alt=""></div>
-                    <p class="mb-0">Behance</p>
-                  </div>
-</a>
-                </div>
-             
-              </div><br>
-           
+          </div>
+          <div class="col-3">
+            <a href="https://dribbble.com/i-mishab" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/dribbble.png" alt=""></div>
+                <p class="mb-0">Dribbble</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="https://www.facebook.com/i.mishab/" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/facebook.png" alt=""></div>
+                <p class="mb-0">Facebook </p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="https://www.instagram.com/i.mishab/" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/instagram.png" alt=""></div>
+                <p class="mb-0">Instagram</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="https://www.linkedin.com/in/mishab-msb-4aa6b6201/" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/linkedin.png" alt=""></div>
+                <p class="mb-0">Linkedin</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="https://www.youtube.com/channel/UCsBAJimRq5wQDG3hjg7vHyw" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/youtube.png" alt=""></div>
+                <p class="mb-0">Youtube</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="https://api.whatsapp.com/send/?phone=9947154691&text&app_absent=0" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/whatsapp.png" alt=""></div>
+                <p class="mb-0">Whatsapp</p>
+              </div>
+            </a>
+          </div>
+          <div class="col-3">
+            <a href="https://www.behance.net/i-mishab" target="_____blanck">
+              <div class="feature-card mx-auto text-center">
+                <div class="card shadow mx-auto"><img src="assets/img/social/behance.png" alt=""></div>
+                <p class="mb-0">Behance</p>
+              </div>
+            </a>
+          </div>
+
+        </div><br>
 
 
 
-     
+
+
       </div>
     </div>
     <br>
@@ -338,15 +650,15 @@
         <!-- Single Skill Progress Bar-->
         <div class="skill-progress-bar d-flex align-items-center">
           <!-- Skill Icon-->
-              <!-- Skill Icon-->
-              <div class="skill-icon shadow-sm"><svg width="24" height="24" viewBox="0 0 16 16"
-                class="bi bi-bootstrap text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                  d="M12 1H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM4 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4z" />
-                <path fill-rule="evenodd"
-                  d="M8.537 12H5.062V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396zM6.375 4.658v2.467h1.558c1.16 0 1.764-.428 1.764-1.23 0-.78-.569-1.237-1.541-1.237H6.375zm1.898 6.229H6.375V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377z" />
-              </svg>
-            </div>
+          <!-- Skill Icon-->
+          <div class="skill-icon shadow-sm"><svg width="24" height="24" viewBox="0 0 16 16"
+              class="bi bi-bootstrap text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M12 1H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM4 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4z" />
+              <path fill-rule="evenodd"
+                d="M8.537 12H5.062V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396zM6.375 4.658v2.467h1.558c1.16 0 1.764-.428 1.764-1.23 0-.78-.569-1.237-1.541-1.237H6.375zm1.898 6.229H6.375V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377z" />
+            </svg>
+          </div>
           <!-- Skill Data-->
           <div class="skill-data">
             <!-- Skill Name-->
@@ -363,39 +675,43 @@
         </div>
 
 
-               <!-- Single Skill Progress Bar-->
-               <div class="skill-progress-bar d-flex align-items-center">
-                <!-- Skill Icon-->
-                <div class="skill-icon text-primary shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                    fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                      d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z" />
-                    <path fill-rule="evenodd" d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z" />
-                  </svg>
-                </div>
-                <!-- Skill Data-->
-                <div class="skill-data">
-                  <!-- Skill Name-->
-                  <div class="skill-name d-flex align-items-center justify-content-between">
-                    <p class="mb-1">UI/UX DESIGN & PHOTOSHOP</p><small class="mb-1"><span class="counter">95</span>%</small>
-                  </div>
-                  <!-- Progress-->
-                  <div class="progress">
-                    <div class="progress-bar bg-primary" style="width: 95%;" role="progressbar" aria-valuenow="95"
-                      aria-valuemin="0" aria-valuemax="100">
-                      95%</div>
-                  </div>
-                </div>
-              </div>
+        <!-- Single Skill Progress Bar-->
+        <div class="skill-progress-bar d-flex align-items-center">
+          <!-- Skill Icon-->
+          <div class="skill-icon text-primary shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z" />
+              <path fill-rule="evenodd" d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z" />
+            </svg>
+          </div>
+          <!-- Skill Data-->
+          <div class="skill-data">
+            <!-- Skill Name-->
+            <div class="skill-name d-flex align-items-center justify-content-between">
+              <p class="mb-1">UI/UX DESIGN & PHOTOSHOP</p><small class="mb-1"><span class="counter">95</span>%</small>
+            </div>
+            <!-- Progress-->
+            <div class="progress">
+              <div class="progress-bar bg-primary" style="width: 95%;" role="progressbar" aria-valuenow="95"
+                aria-valuemin="0" aria-valuemax="100">
+                95%</div>
+            </div>
+          </div>
+        </div>
 
         <!-- Single Skill Progress Bar-->
         <div class="skill-progress-bar d-flex align-items-center">
           <!-- Skill Icon-->
-          <div class="skill-icon shadow-sm "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-clipboard-data text-danger" viewBox="0 0 16 16">
-            <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
-            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-          </svg>
+          <div class="skill-icon shadow-sm "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="currentColor" class="bi bi-clipboard-data text-danger" viewBox="0 0 16 16">
+              <path
+                d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z" />
+              <path
+                d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+              <path
+                d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+            </svg>
           </div>
           <!-- Skill Data-->
           <div class="skill-data">
@@ -437,27 +753,29 @@
         </div>
 
 
-                  <!-- Single Skill Progress Bar-->
-                  <div class="skill-progress-bar d-flex align-items-center">
-                    <!-- Skill Icon-->
-                    <div class="skill-icon shadow-sm text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-git" viewBox="0 0 16 16">
-                      <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-                    </svg>
-                    </div>
-                    <!-- Skill Data-->
-                    <div class="skill-data">
-                      <!-- Skill Name-->
-                      <div class="skill-name d-flex align-items-center justify-content-between">
-                        <p class="mb-1">GIT & GITHUB </p><small class="mb-1"><span class="counter">80</span>%</small>
-                      </div>
-                      <!-- Progress-->
-                      <div class="progress">
-                        <div class="progress-bar bg-secondary" style="width: 80%;" role="progressbar" aria-valuenow="60"
-                          aria-valuemin="0" aria-valuemax="100">
-                          80%</div>
-                      </div>
-                    </div>
-                  </div>
+        <!-- Single Skill Progress Bar-->
+        <div class="skill-progress-bar d-flex align-items-center">
+          <!-- Skill Icon-->
+          <div class="skill-icon shadow-sm text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="currentColor" class="bi bi-git" viewBox="0 0 16 16">
+              <path
+                d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457" />
+            </svg>
+          </div>
+          <!-- Skill Data-->
+          <div class="skill-data">
+            <!-- Skill Name-->
+            <div class="skill-name d-flex align-items-center justify-content-between">
+              <p class="mb-1">GIT & GITHUB </p><small class="mb-1"><span class="counter">80</span>%</small>
+            </div>
+            <!-- Progress-->
+            <div class="progress">
+              <div class="progress-bar bg-secondary" style="width: 80%;" role="progressbar" aria-valuenow="60"
+                aria-valuemin="0" aria-valuemax="100">
+                80%</div>
+            </div>
+          </div>
+        </div>
 
 
         <!-- Single Skill Progress Bar-->
@@ -473,7 +791,8 @@
           <div class="skill-data">
             <!-- Skill Name-->
             <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">JAVASCRIPT, NODE JS & EXPRESS</p><small class="mb-1"><span class="counter">60</span>%</small>
+              <p class="mb-1">JAVASCRIPT, NODE JS & EXPRESS</p><small class="mb-1"><span
+                  class="counter">60</span>%</small>
             </div>
             <!-- Progress-->
             <div class="progress">
@@ -483,7 +802,7 @@
             </div>
           </div>
         </div>
- 
+
       </div>
     </div>
   </div>
@@ -534,40 +853,43 @@
       <div class="card-body">
         <div class="accordion accordion-style-four" id="accordionStyle4">
 
-            <!-- Single accordion-->
-            <div class="accordion-item">
-              <div class="accordion-header" id="accordion11">
-                <h6 class="collapsed" data-bs-toggle="collapse" data-bs-target="#accordionStyle11" aria-expanded="false"
-                  aria-controls="accordionStyle11">
-                  AllinOneBro (Php Project)<svg width="20" height="20" viewBox="0 0 16 16"
-                    class="bi bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
-                  </svg>
-                </h6>
-              </div>
-              <div class="accordion-collapse collapse" id="accordionStyle11" aria-labelledby="accordion11"
-                data-bs-parent="#accordionStyle4">
-                <div class="accordion-body">
-                  <p class="mb-0">I made this website for those who need every converters and downloaders in one platform, so a user can easily find their need through this website</p>
-                  <br>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a href="https://github.com/Mishab4you/AllinOneBro" target="_blank" class="btn btn-primary btn-creative">Github</a>
-                      <a href="http://allinonebro.epizy.com/" target="_blank" class="btn btn-success btn-creative ">Demo</a>
-  
-                    </div>
+          <!-- Single accordion-->
+          <div class="accordion-item">
+            <div class="accordion-header" id="accordion11">
+              <h6 class="collapsed" data-bs-toggle="collapse" data-bs-target="#accordionStyle11" aria-expanded="false"
+                aria-controls="accordionStyle11">
+                AllinOneBro (Php Project)<svg width="20" height="20" viewBox="0 0 16 16" class="bi bi-caret-down"
+                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                </svg>
+              </h6>
+            </div>
+            <div class="accordion-collapse collapse" id="accordionStyle11" aria-labelledby="accordion11"
+              data-bs-parent="#accordionStyle4">
+              <div class="accordion-body">
+                <p class="mb-0">I made this website for those who need every converters and downloaders in one platform,
+                  so a user can easily find their need through this website</p>
+                <br>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a href="https://github.com/Mishab4you/AllinOneBro" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
+                    <a href="http://allinonebro.epizy.com/" target="_blank"
+                      class="btn btn-success btn-creative ">Demo</a>
+
                   </div>
                 </div>
               </div>
             </div>
-            <hr>
+          </div>
+          <hr>
 
           <!-- Single accordion-->
           <div class="accordion-item">
             <div class="accordion-header" id="accordionTen">
               <h6 class="collapsed" data-bs-toggle="collapse" data-bs-target="#accordionStyleTen" aria-expanded="false"
-                  aria-controls="accordionStyleTen">
+                aria-controls="accordionStyleTen">
                 MSM Kozhikode North (Php Project)<svg width="20" height="20" viewBox="0 0 16 16"
                   class="bi bi-caret-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
@@ -585,7 +907,8 @@
                 <br>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a href="https://github.com/Mishab4you/msmnorth" target="_blank" class="btn btn-primary btn-creative">Github</a>
+                    <a href="https://github.com/Mishab4you/msmnorth" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
                     <a href="http://msmnorth.com" target="__blank" class="btn btn-success btn-creative ">Demo</a>
 
                   </div>
@@ -614,7 +937,8 @@
                 <br>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a href="https://github.com/Mishab4you/Shopping-Cart" target="_blank" class="btn btn-primary btn-creative">Github</a>
+                    <a href="https://github.com/Mishab4you/Shopping-Cart" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
                     <!-- <a href="#!" class="btn btn-success btn-creative ">Demo</a> -->
 
                   </div>
@@ -645,7 +969,8 @@
                 <br>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a href="https://github.com/Mishab4you/linksflow" target="_blank" class="btn btn-primary btn-creative">Github</a>
+                    <a href="https://github.com/Mishab4you/linksflow" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
                     <a href="http://freelink.epizy.com" target="_blank" class="btn btn-success btn-creative ">Demo</a>
 
                   </div>
@@ -670,12 +995,15 @@
             <div class="accordion-collapse collapse" id="accordionStyle13" aria-labelledby="accordion13"
               data-bs-parent="#accordionStyle4">
               <div class="accordion-body">
-                <p class="mb-0">This application is used to store your health related documents and medical prescriptions.</p>
+                <p class="mb-0">This application is used to store your health related documents and medical
+                  prescriptions.</p>
                 <br>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a href="https://github.com/Mishab4you/Health-Keeper" target="_blank" class="btn btn-primary btn-creative">Github</a>
-                    <a href="http://healthkeeper.epizy.com/" target="_blank" class="btn btn-success btn-creative ">Demo</a>
+                    <a href="https://github.com/Mishab4you/Health-Keeper" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
+                    <a href="http://healthkeeper.epizy.com/" target="_blank"
+                      class="btn btn-success btn-creative ">Demo</a>
 
                   </div>
                 </div>
@@ -699,11 +1027,14 @@
             <div class="accordion-collapse collapse" id="accordionStyle14" aria-labelledby="accordion14"
               data-bs-parent="#accordionStyle4">
               <div class="accordion-body">
-                <p class="mb-0">We are Young talents who have been immersed in technology for many years, now held together by the passion to sculpt new ideas into reality. We don't promise perfection but we deliver it.</p>
+                <p class="mb-0">We are Young talents who have been immersed in technology for many years, now held
+                  together by the passion to sculpt new ideas into reality. We don't promise perfection but we deliver
+                  it.</p>
                 <br>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a href="https://github.com/Mishab4you/Aizonlabs_PHP" target="_blank" class="btn btn-primary btn-creative">Github</a>
+                    <a href="https://github.com/Mishab4you/Aizonlabs_PHP" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
                     <a href="https://aizonlabs.com/" target="_blank" class="btn btn-success btn-creative ">Demo</a>
 
                   </div>
@@ -732,52 +1063,55 @@
                 <br>
                 <div class="row">
                   <div class="col-sm-12">
-                    <a href="https://github.com/vectorcrop/vectorcrop.github.io" target="_blank" class="btn btn-primary btn-creative">Github</a>
-                    <a href="https://www.vectorcrop.com/" target="__blank" class="btn btn-success btn-creative ">Demo</a>
+                    <a href="https://github.com/vectorcrop/vectorcrop.github.io" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
+                    <a href="https://www.vectorcrop.com/" target="__blank"
+                      class="btn btn-success btn-creative ">Demo</a>
 
                   </div>
                 </div>
               </div>
             </div>
           </div>
-<hr>
-             <!-- Single accordion-->
-             <div class="accordion-item">
-              <div class="accordion-header" id="accordion17">
-                <h6 class="collapsed" data-bs-toggle="collapse" data-bs-target="#accordionStyle17" aria-expanded="false"
-                  aria-controls="accordionStyle17">
-                  IefExpo (UI)<svg width="20" height="20" viewBox="0 0 16 16" class="bi bi-caret-down"
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                      d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
-                  </svg>
-                </h6>
-              </div>
-              <div class="accordion-collapse collapse" id="accordionStyle17" aria-labelledby="accordion17"
-                data-bs-parent="#accordionStyle4">
-                <div class="accordion-body">
-                  <p class="mb-0">International Education Festival.</p>
-                  <br>
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <a href="https://github.com/iefexpo/iefexpo.github.io" target="_blank" class="btn btn-primary btn-creative">Github</a>
-                      <a href="https://www.iefexpo.in/" target="__blank" class="btn btn-success btn-creative ">Demo</a>
-  
-                    </div>
+          <hr>
+          <!-- Single accordion-->
+          <div class="accordion-item">
+            <div class="accordion-header" id="accordion17">
+              <h6 class="collapsed" data-bs-toggle="collapse" data-bs-target="#accordionStyle17" aria-expanded="false"
+                aria-controls="accordionStyle17">
+                IefExpo (UI)<svg width="20" height="20" viewBox="0 0 16 16" class="bi bi-caret-down" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                </svg>
+              </h6>
+            </div>
+            <div class="accordion-collapse collapse" id="accordionStyle17" aria-labelledby="accordion17"
+              data-bs-parent="#accordionStyle4">
+              <div class="accordion-body">
+                <p class="mb-0">International Education Festival.</p>
+                <br>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a href="https://github.com/iefexpo/iefexpo.github.io" target="_blank"
+                      class="btn btn-primary btn-creative">Github</a>
+                    <a href="https://www.iefexpo.in/" target="__blank" class="btn btn-success btn-creative ">Demo</a>
+
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
 
 
 
-          
+
         </div>
       </div>
     </div>
   </div>
-<br>
+  <br>
   <!-- Static Backdrop Modal-->
   <!-- <div class="modal fade" id="cs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
