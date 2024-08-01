@@ -17,11 +17,11 @@
     href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
     rel="stylesheet">
   <!-- Favicon-->
-  <!-- <link rel="icon" href="img/core-img/favicon.ico">
-  <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="img/icons/icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="img/icons/icon-167x167.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="img/icons/icon-180x180.png"> -->
+  <link rel="icon" href="assets/img/me/logo.png">
+  <link rel="apple-touch-icon" href="assets/img/me/logo.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/me/logo.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/img/me/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/me/logo.png">
   <!-- CSS Libraries-->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/animate.css">
@@ -113,15 +113,121 @@
     }
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
   html,
   body {
-    background: #eaedf2;
-    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+  }
+
+  .img2 {
+    width: 20%;
+    z-index: 1;
+
+  }
+
+  @keyframes flicker {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .banner2 {
+    margin-top: -560px;
+  }
+
+  .thello {
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: -5px;
+    margin-left: -55px;
+  }
+
+  .card2 {
+    margin-top: 0px;
+    z-index: 99;
+  }
+
+  .border-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .border2 {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 2px solid rgb(4, 135, 206);
+    position: absolute;
+    opacity: 0;
+    animation: flicker 1s infinite;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .img2 {
+      width: 50%;
+      z-index: 1;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .card2 {
+      margin-top: -70px;
+      z-index: 99;
+    }
+
+    .border2 {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 2px solid rgb(4, 135, 206);
+      position: absolute;
+      opacity: 0;
+      animation: flicker 1s infinite;
+    }
+
+    /* .border3 {
+          width: 190px;
+          height: 190px;
+          border-radius: 50%;
+          border: 2px solid black;
+          position: absolute;
+          opacity: 0;
+          animation: flicker 1s infinite;
+        } */
+
+    .thello {
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: -5px;
+      margin-left: -45px;
+    }
+
+    .banner2 {
+      margin-top: -630px;
+    }
   }
 
   .floating-container {
@@ -217,11 +323,24 @@
   .floating-container .float-element:nth-child(3) {
     background: #FF9800;
   }
+
+  .t2 {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .hb-styles1 {
+    background-image: url('assets/img/core-img/dot.png')
+  }
+
+  .img5 {
+    height: auto;
+    width: 200px;
+  }
 </style>
 
 <body>
   <!-- Preloader-->
-  <!-- <div class="preloader d-flex align-items-center justify-content-center" id="preloader">
+  <div class="preloader d-flex align-items-center justify-content-center" id="preloader">
     <div class="container1">
       <div class="div2" id="value">100</div>
       <div class="part3">
@@ -237,13 +356,13 @@
       <div class="loading">
       </div>
     </div>
-  </div> -->
+  </div>
 
   <div class="floating-container">
     <div class="floating-button"><i class="bi bi-stars"></i></div>
     <div class="element-container">
 
-      <a href="google.com"> <span class="float-element bg-dark tooltip-left">
+      <a href="assets/pdf/finalcv.pdf"> <span class="float-element bg-dark tooltip-left">
           <i class="bi bi-download"></i>
         </span></a>
       <a href="google.com"> <span class="float-element bg-dark tooltip-left">
@@ -351,7 +470,7 @@
           </a></div>
         <!-- User Profile-->
         <div class="shadow user-profile-wrapper"><a class="shadow user-profile-trigger-btn"
-            href="assets/pdf/MishabResume2022.pdf"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+            href="assets/pdf/finalcv.pdf"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
               fill="currentColor" class="bi bi-cloud-download" viewBox="0 0 16 16">
               <path
                 d="M4.406 1.342A5.53 5.53 0 0 1 8 0c2.69 0 4.923 2 5.166 4.579C14.758 4.804 16 6.137 16 7.773 16 9.569 14.502 11 12.687 11H10a.5.5 0 0 1 0-1h2.688C13.979 10 15 8.988 15 7.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 2.825 10.328 1 8 1a4.53 4.53 0 0 0-2.941 1.1c-.757.652-1.153 1.438-1.153 2.055v.448l-.445.049C2.064 4.805 1 5.952 1 7.318 1 8.785 2.23 10 3.781 10H6a.5.5 0 0 1 0 1H3.781C1.708 11 0 9.366 0 7.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383z" />
@@ -362,132 +481,16 @@
       <!-- # Header Three Layout End-->
     </div>
   </div>
+
   <!-- Hero Block Wrapper-->
   <div class="hero-block-wrapper bg-white">
     <!-- Styles-->
     <div class="hero-block-styles mt-3">
-      <div class="hb-styles1" style="background-image: url('assets/img/core-img/dot.png')"></div>
+      <div class="hb-styles1"></div>
       <div class="hb-styles2"></div>
       <div class="hb-styles3"></div>
     </div>
-    <style>
-      html,
-      body {
-        background-color: #ffffff;
-      }
 
-      .img2 {
-        width: 20%;
-        z-index: 1;
-
-      }
-
-      @keyframes flicker {
-        0% {
-          opacity: 0;
-        }
-
-        50% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-        }
-      }
-
-      .banner2 {
-        margin-top: -560px;
-      }
-
-      .thello {
-        font-family: 'DM Sans', sans-serif;
-        margin-bottom: -5px;
-        margin-left: -55px;
-      }
-
-      .card2 {
-        margin-top: 0px;
-        z-index: 99;
-      }
-
-      .border-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .border2 {
-        width: 130px;
-        height: 130px;
-        border-radius: 50%;
-        border: 2px solid black;
-        position: absolute;
-        opacity: 0;
-        animation: flicker 1s infinite;
-      }
-
-      @media only screen and (max-width: 600px) {
-        .img2 {
-          width: 50%;
-          z-index: 1;
-        }
-
-        @keyframes flicker {
-          0% {
-            opacity: 0;
-          }
-
-          50% {
-            opacity: 1;
-          }
-
-          100% {
-            opacity: 0;
-          }
-        }
-
-        .card2 {
-          margin-top: -70px;
-          z-index: 99;
-        }
-
-        .border2 {
-          width: 170px;
-          height: 170px;
-          border-radius: 50%;
-          border: 2px solid rgb(4, 135, 206);
-          position: absolute;
-          opacity: 0;
-          animation: flicker 1s infinite;
-        }
-
-        /* .border3 {
-          width: 190px;
-          height: 190px;
-          border-radius: 50%;
-          border: 2px solid black;
-          position: absolute;
-          opacity: 0;
-          animation: flicker 1s infinite;
-        } */
-
-        .thello {
-          font-family: 'DM Sans', sans-serif;
-          margin-bottom: -5px;
-          margin-left: -45px;
-        }
-
-        .banner2 {
-          margin-top: -630px;
-        }
-      }
-    </style>
     <div class="container">
       <!-- Skip Page-->
       <div class="banner2">
@@ -502,10 +505,10 @@
             <img class="img2" src="assets/img/me/me.png">
           </div>
         </center>
-        <h1 class="thello text-dark text-center">Hello👋🏻
+        <h1 class="thello text-info text-center">Hello👋🏻
         </h1>
 
-        <h1 class="text-dark text-center mb-3" style="font-family: 'DM Sans', sans-serif;">I'm Mishab</h1>
+        <h1 class="text-dark text-center mb-3 t2">I'm Mishab</h1>
         <p class=" text-dark text-center">
 
           And i'm a<br>
@@ -541,7 +544,7 @@
           My expertise includes the MERN stack, IoT, AWS, Docker, and Flutter. I'm currently freelancing at VectorCrop,
           a venture I founded, where I collaborate with clients to bring their visions to life.<br><br>
 
-          Outside of coding, I enjoy exploring the outdoors, reading, and tinkering with gadgets.
+          Outside of coding, I enjoy exploring the outdoors, reading, and tinkering with gadgets.<br><br>
 
           When it comes to technology, I'm always eager to stay ahead of the curve. Whether it's learning new languages
           or diving into emerging trends, I thrive on embracing new challenges and pushing the boundaries of what's
@@ -549,15 +552,17 @@
           solutions that empower businesses to thrive in today's dynamic digital landscape.
         </h6>
         <h6 class="mt-3">
-          <i class="fa fa-angle-right"></i> <span> Born : </span>12-march-2001<br>
-          <i class="fa fa-angle-right"></i> <span> City : </span> Kozhikode, Kerala<br>
+          <i class="fa fa-angle-right"></i> <span> Born : </span>12th March 2001<br>
+          <i class="fa fa-angle-right"></i> <span> From : </span> Balusser, Kozhikode, Kerala<br>
           <i class="fa fa-angle-right"></i> <span> Phone : </span> +91 99471 54691<br>
-          <i class="fa fa-angle-right"></i> <span> Email : </span> imishabmsb@gmail.com<br>
-          <i class="fa fa-angle-right"></i> <span> Degree : </span> BCA (2022)<br>
+          <i class="fa fa-angle-right"></i> <span> Email : </span> mishabdev@gmail.com<br>
+          <i class="fa fa-angle-right"></i> <span> Degree : </span> BCA (2022, Calicut University)<br>
+          <i class="fa fa-angle-right"></i> <span> Post Graduation : </span> MCA (2024, KTU University)<br>
+
           <i class="fa fa-angle-right"></i> <span> Website : </span> <a href="https://www.vectorcrop.com"
             target="_____blanck">www.vectorcrop.com</a>
         </h6>
-        <a class="btn btn-primary mt-3 mb-5" href="assets/pdf/MishabResume2022.pdf">Download
+        <a class="btn btn-primary mt-3 mb-5" href="assets/pdf/finalcv.pdf">Download
           My
           Resume</a><br>
         <div class="row g-3">
@@ -646,6 +651,30 @@
         </div>
         <hr>
 
+        <!-- Single Skill Progress Bar-->
+        <div class="skill-progress-bar d-flex align-items-center">
+          <!-- Skill Icon-->
+          <div class="skill-icon text-warning shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+              <path
+                d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+            </svg>
+          </div>
+          <!-- Skill Data-->
+          <div class="skill-data">
+            <!-- Skill Name-->
+            <div class="skill-name d-flex align-items-center justify-content-between">
+              <p class="mb-1">NEXTJS, JAVASCRIPT, NODE JS & EXPRESS</p><small class="mb-1"><span
+                  class="counter">80</span>%</small>
+            </div>
+            <!-- Progress-->
+            <div class="progress">
+              <div class="progress-bar bg-warning" style="width: 80%;" role="progressbar" aria-valuenow="80"
+                aria-valuemin="0" aria-valuemax="100">
+                80%</div>
+            </div>
+          </div>
+        </div>
 
         <!-- Single Skill Progress Bar-->
         <div class="skill-progress-bar d-flex align-items-center">
@@ -663,7 +692,7 @@
           <div class="skill-data">
             <!-- Skill Name-->
             <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">HTML, CSS & BOOTSTRAP</p><small class="mb-1"><span class="counter">85</span>%</small>
+              <p class="mb-1">HTML, CSS, JS & BOOTSTRAP</p><small class="mb-1"><span class="counter">85</span>%</small>
             </div>
             <!-- Progress-->
             <div class="progress">
@@ -673,6 +702,8 @@
             </div>
           </div>
         </div>
+
+
 
 
         <!-- Single Skill Progress Bar-->
@@ -689,7 +720,7 @@
           <div class="skill-data">
             <!-- Skill Name-->
             <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">UI/UX DESIGN & PHOTOSHOP</p><small class="mb-1"><span class="counter">95</span>%</small>
+              <p class="mb-1">UI/UX DESIGN</p><small class="mb-1"><span class="counter">95</span>%</small>
             </div>
             <!-- Progress-->
             <div class="progress">
@@ -717,13 +748,13 @@
           <div class="skill-data">
             <!-- Skill Name-->
             <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">MONGO DB</p><small class="mb-1"><span class="counter">50</span>%</small>
+              <p class="mb-1">MONGO DB</p><small class="mb-1"><span class="counter">70</span>%</small>
             </div>
             <!-- Progress-->
             <div class="progress">
-              <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar" aria-valuenow="50"
+              <div class="progress-bar bg-primary" style="width: 70%;" role="progressbar" aria-valuenow="70"
                 aria-valuemin="0" aria-valuemax="100">
-                50%</div>
+                70%</div>
             </div>
           </div>
         </div>
@@ -741,13 +772,13 @@
           <div class="skill-data">
             <!-- Skill Name-->
             <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">PHP & MySQL </p><small class="mb-1"><span class="counter">80</span>%</small>
+              <p class="mb-1">PHP & MySQL </p><small class="mb-1"><span class="counter">50</span>%</small>
             </div>
             <!-- Progress-->
             <div class="progress">
-              <div class="progress-bar bg-dark" style="width: 80%;" role="progressbar" aria-valuenow="60"
+              <div class="progress-bar bg-dark" style="width: 50%;" role="progressbar" aria-valuenow="50"
                 aria-valuemin="0" aria-valuemax="100">
-                80%</div>
+                50%</div>
             </div>
           </div>
         </div>
@@ -766,42 +797,19 @@
           <div class="skill-data">
             <!-- Skill Name-->
             <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">GIT & GITHUB </p><small class="mb-1"><span class="counter">80</span>%</small>
+              <p class="mb-1">GIT & GITHUB </p><small class="mb-1"><span class="counter">90</span>%</small>
             </div>
             <!-- Progress-->
             <div class="progress">
-              <div class="progress-bar bg-secondary" style="width: 80%;" role="progressbar" aria-valuenow="60"
+              <div class="progress-bar bg-secondary" style="width: 90%;" role="progressbar" aria-valuenow="60"
                 aria-valuemin="0" aria-valuemax="100">
-                80%</div>
+                90%</div>
             </div>
           </div>
         </div>
 
 
-        <!-- Single Skill Progress Bar-->
-        <div class="skill-progress-bar d-flex align-items-center">
-          <!-- Skill Icon-->
-          <div class="skill-icon text-warning shadow-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-              fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
-              <path
-                d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
-            </svg>
-          </div>
-          <!-- Skill Data-->
-          <div class="skill-data">
-            <!-- Skill Name-->
-            <div class="skill-name d-flex align-items-center justify-content-between">
-              <p class="mb-1">JAVASCRIPT, NODE JS & EXPRESS</p><small class="mb-1"><span
-                  class="counter">60</span>%</small>
-            </div>
-            <!-- Progress-->
-            <div class="progress">
-              <div class="progress-bar bg-warning" style="width: 60%;" role="progressbar" aria-valuenow="80"
-                aria-valuemin="0" aria-valuemax="100">
-                60%</div>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>
@@ -820,7 +828,7 @@
 
           </div>
 
-          <div class="service-img"><img src="assets/img/bg-img/trophy.png" style="height: auto; width: 200px;"></div>
+          <div class="service-img"><img class="img5" src="assets/img/bg-img/trophy.png"></div>
         </div>
       </div>
     </div>
@@ -836,7 +844,7 @@
 
           </div>
 
-          <div class="service-img"><img src="assets/img/bg-img/design.png" style="height: auto; width: 200px;"></div>
+          <div class="service-img"><img class="img5" src="assets/img/bg-img/design.png"></div>
         </div>
       </div>
     </div>
